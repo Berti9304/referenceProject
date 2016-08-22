@@ -178,14 +178,14 @@ dc.loadMenuCategories = function () {
     buildAndShowCategoriesHTML);
 };
 
-function menuDecide(categoryShort, decidingFactor)
+function menuDecide(categoryShort)
 {
   if(categoryShort === "C") {
     return "https://api.myjson.com/bins/32hzf";
     
   }
   else if(categoryShort === "B") {
-    decidingFactor = "B";
+    
     return "https://api.myjson.com/bins/3t2rv";
     
   }
@@ -205,7 +205,7 @@ dc.loadMenuItems = function (categoryShort) {
 
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
-    menuDecide(categoryShort, decidingFactor),
+    menuDecide(categoryShort),
     buildAndShowMenuItemsHTML);
 };
 

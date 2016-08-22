@@ -154,7 +154,7 @@ dc.loadMenuCategories = function () {
 function menuDecide(categoryShort)
 {
   if(categoryShort === "C") return "https://api.myjson.com/bins/32hzf";
-  else if(categoryShort === "B") return "TODO";
+  else if(categoryShort === "B") return "https://api.myjson.com/bins/3t2rv";
   else if(categoryShort === "P") return "TODO";
 }
 // Load the menu items view

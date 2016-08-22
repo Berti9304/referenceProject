@@ -60,6 +60,20 @@ var switchMenuToActive = function () {
   }
 };
 
+var switchPizzaToActive = function () {
+  // Remove 'active' from home button
+  var classes = document.querySelector("#navHomeButton").className;
+  classes = classes.replace(new RegExp("active", "g"), "");
+  document.querySelector("#navHomeButton").className = classes;
+
+  // Add 'active' to menu button if not already there
+  classes = document.querySelector("#navPizzaButton").className;
+  if (classes.indexOf("active") === -1) {
+    classes += " active";
+    document.querySelector("#navPizzaButton").className = classes;
+  }
+};
+
 // On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
 
@@ -119,7 +133,6 @@ function buildAndShowHomeHTML (categories) {
       // it into the home html snippet.
       //
       var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, "randomCategoryShortName", chosenCategoryShortName);
-      console.log(homeHtmlToInsertIntoMainPage);
       insertHtml("#main-content",homeHtmlToInsertIntoMainPage);
 
 
@@ -161,6 +174,7 @@ function menuDecide(categoryShort)
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
 dc.loadMenuItems = function (categoryShort) {
+
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
     menuDecide(categoryShort),
@@ -235,10 +249,9 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
       $ajaxUtils.sendGetRequest(
         menuItemHtml,
         function (menuItemHtml) {
-          // Switch CSS class active to menu button
-          switchMenuToActive();
+          
 
-          var menuItemsViewHtml =
+        menuItemsViewHtml =
             buildMenuItemsViewHtml(categoryMenuItems,
                                    menuItemsTitleHtml,
                                    menuItemHtml);

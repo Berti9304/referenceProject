@@ -60,18 +60,7 @@ body {
   font-size: 1.8em;
 }
 
-#phone {
-  margin-top: 5px;
-}
-#phone a { /* Phone number */
-  text-align: right;
-  padding-bottom: 0;
-}
-#phone div { /* We Deliver */
-  color: #937428;
-  text-align: right;
-  padding-right: 15px;
-}
+
 
 .navbar-header button.navbar-toggle, .navbar-header .icon-bar {
   border: 1px solid #61122f;
@@ -326,6 +315,8 @@ h3.menu-item-title {
     letter-spacing: .1em;
     text-transform: uppercase;
   }
+
+
   /* End Header */
 
   /* Footer */

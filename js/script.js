@@ -155,7 +155,7 @@ function menuDecide(categoryShort)
 {
   if(categoryShort === "C") return "https://api.myjson.com/bins/32hzf";
   else if(categoryShort === "B") return "https://api.myjson.com/bins/3t2rv";
-  else if(categoryShort === "P") return "TODO";
+  else if(categoryShort === "P") return "https://api.myjson.com/bins/33lc3";
 }
 // Load the menu items view
 // 'categoryShort' is a short_name for a category

@@ -151,13 +151,18 @@ dc.loadMenuCategories = function () {
     buildAndShowCategoriesHTML);
 };
 
-
+function menuDecide(categoryShort)
+{
+  if(categoryShort === "C") return "https://api.myjson.com/bins/32hzf";
+  else if(categoryShort === "B") return "TODO";
+  else if(categoryShort === "P") return "TODO";
+}
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
 dc.loadMenuItems = function (categoryShort) {
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
-    menuItemsUrl + categoryShort,
+    menuDecide(categoryShort),
     buildAndShowMenuItemsHTML);
 };
 

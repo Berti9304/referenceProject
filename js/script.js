@@ -52,19 +52,28 @@ var switchMenuToActive = function () {
   classes = classes.replace(new RegExp("active", "g"), "");
   document.querySelector("#navHomeButton").className = classes;
 
+  var classes = document.querySelector("#navPizzaButton").className;
+  classes = classes.replace(new RegExp("active", "g"), "");
+  document.querySelector("#navPizzaButton").className = classes;
+
   // Add 'active' to menu button if not already there
   classes = document.querySelector("#navMenuButton").className;
   if (classes.indexOf("active") === -1) {
     classes += " active";
     document.querySelector("#navMenuButton").className = classes;
   }
-};
+}
+  
 
-var switchPizzaToActive = function () {
-  // Remove 'active' from home button
+var switchPizzaToActive = function(){
+
   var classes = document.querySelector("#navHomeButton").className;
   classes = classes.replace(new RegExp("active", "g"), "");
   document.querySelector("#navHomeButton").className = classes;
+
+  var classes = document.querySelector("#navMenuButton").className;
+  classes = classes.replace(new RegExp("active", "g"), "");
+  document.querySelector("#navMenuButton").className = classes;
 
   // Add 'active' to menu button if not already there
   classes = document.querySelector("#navPizzaButton").className;
@@ -72,7 +81,12 @@ var switchPizzaToActive = function () {
     classes += " active";
     document.querySelector("#navPizzaButton").className = classes;
   }
-};
+
+}
+
+
+
+
 
 // On page load (before images or CSS)
 document.addEventListener("DOMContentLoaded", function (event) {
@@ -164,20 +178,34 @@ dc.loadMenuCategories = function () {
     buildAndShowCategoriesHTML);
 };
 
-function menuDecide(categoryShort)
+function menuDecide(categoryShort, decidingFactor)
 {
-  if(categoryShort === "C") return "https://api.myjson.com/bins/32hzf";
-  else if(categoryShort === "B") return "https://api.myjson.com/bins/3t2rv";
-  else if(categoryShort === "P") return "https://api.myjson.com/bins/33lc3";
-  else if(categoryShort === "PZ") return "https://api.myjson.com/bins/2ejbv";
+  if(categoryShort === "C") {
+    return "https://api.myjson.com/bins/32hzf";
+    
+  }
+  else if(categoryShort === "B") {
+    decidingFactor = "B";
+    return "https://api.myjson.com/bins/3t2rv";
+    
+  }
+  else if(categoryShort === "P") {
+    return "https://api.myjson.com/bins/33lc3";
+    
+  }
+  else if(categoryShort === "PZ"){ 
+    return "https://api.myjson.com/bins/2ejbv";
+   
+  }
 }
+
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
 dc.loadMenuItems = function (categoryShort) {
 
   showLoading("#main-content");
   $ajaxUtils.sendGetRequest(
-    menuDecide(categoryShort),
+    menuDecide(categoryShort, decidingFactor),
     buildAndShowMenuItemsHTML);
 };
 
@@ -194,6 +222,7 @@ function buildAndShowCategoriesHTML (categories) {
         categoryHtml,
         function (categoryHtml) {
           // Switch CSS class active to menu button
+
           switchMenuToActive();
 
           var categoriesViewHtml =
@@ -249,8 +278,6 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
       $ajaxUtils.sendGetRequest(
         menuItemHtml,
         function (menuItemHtml) {
-          
-
         menuItemsViewHtml =
             buildMenuItemsViewHtml(categoryMenuItems,
                                    menuItemsTitleHtml,
@@ -284,6 +311,9 @@ function buildMenuItemsViewHtml(categoryMenuItems,
   // Loop over menu items
   var menuItems = categoryMenuItems.menu_items;
   var catShortName = categoryMenuItems.category.short_name;
+  console.log(catShortName);
+  if (catShortName === "PZ") switchPizzaToActive();
+  else switchMenuToActive();
   for (var i = 0; i < menuItems.length; i++) {
     // Insert menu item values
     var html = menuItemHtml;
@@ -293,6 +323,7 @@ function buildMenuItemsViewHtml(categoryMenuItems,
       insertProperty(html,
                      "catShortName",
                      catShortName);
+
     html =
       insertItemPrice(html,
                       "price_small",

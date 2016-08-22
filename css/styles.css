@@ -13,7 +13,7 @@ body {
 }
 
 #logo-img {
-  background: url('../images/italianlogo.png') no-repeat;
+  background: url('../images/logo3.png') no-repeat;
   width: 150px;
   height: 150px;
   margin: 10px 15px 10px 0;
@@ -226,14 +226,7 @@ body {
   margin-bottom: 20px;
   max-width: 250px;
 }
-.menu-item-photo div {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 80px;
-  background-color: #557c3e;
-  text-align: center;
-}
+
 .menu-item-description {
   padding-right: 30px;
   color: #4B3E0D;
@@ -262,7 +255,7 @@ h3.menu-item-title {
 @media (min-width: 992px) and (max-width: 1199px) {
   /* Header */
   #logo-img {
-    background: url('../images/restaurant-logo_medium.png') no-repeat;
+    background: url('../images/logo3medium.png') no-repeat;
     width: 100px;
     height: 100px;
     margin: 5px 5px 5px 0;
@@ -319,9 +312,9 @@ h3.menu-item-title {
     display: block;
     margin: 0 20px;
     padding: 10px;
-    border: 2px solid #fff;
-    background-color: #f6b319;
-    color: #951c49;
+    border: 2px solid #4B3E0D;
+    background-color: #E2C785;
+    color: #4B3E0D;
   }
   #xs-deliver {
     margin-top: 5px;

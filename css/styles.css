@@ -5,6 +5,11 @@ body {
   font-family: 'Oxygen', sans-serif;
 }
 
+#main-content{
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
 /** HEADER **/
 #header-nav {
   background-color: #E2C785;
@@ -117,7 +122,7 @@ body {
 
 #menu-tile, #specials-tile, #map-tile {
   height: 250px;
-  width: 100%;
+  
   margin-bottom: 15px;
   position: relative;
   border: 2px solid #937428;
@@ -155,7 +160,9 @@ body {
   overflow: hidden;
   width: 360px;
   height: 250px;
-  margin: 0 auto 15px;
+  margin: 0 auto ;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
   color: #E2C785;
 
 }
@@ -275,7 +282,12 @@ h3.menu-item-title {
 
 /********** Extra small devices only **********/
 @media (max-width: 767px) {
+
+
+
   /* Header */
+  
+
   .navbar-brand {
     padding-top: 10px;
     height: 80px;
